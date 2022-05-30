@@ -5,7 +5,7 @@ using UnityEngine;
 public class JumpScript : MonoBehaviour
 {
     [SerializeField] CheckGround checkground_Script;
-    Rigidbody2D rigidbody2D;
+    Rigidbody2D _rb;
 
     float jump_height;
     float jump_power;
@@ -13,7 +13,7 @@ public class JumpScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class JumpScript : MonoBehaviour
         {
             if (checkground_Script.GetIsGround())
             {
-                rigidbody2D.velocity = new Vector3(0, jump_height, 0);
+                _rb.velocity = new Vector3(0, jump_height, 0);
                 //rigidbody2D.AddForce(Vector2.up * jump_power, ForceMode2D.Impulse);
                 jump_count++;
             }

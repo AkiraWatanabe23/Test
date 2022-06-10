@@ -17,6 +17,7 @@ public class Scenemanager : MonoBehaviour
         //徐々に暗くする→Sceneを遷移する
         this._fadeImage.DOFade(duration: 1f, endValue: 1f).OnComplete(() => SceneManager.LoadScene(scene));
         //ImageのColorは透明に設定
+        GameManager.instance.score = 0; //TitleSceneに戻った時にScoreをリセットする
     }
     public void StartFadeIn()//フェードイン関数
     {

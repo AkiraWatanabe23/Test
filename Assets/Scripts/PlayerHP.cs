@@ -9,12 +9,13 @@ public class PlayerHP : MonoBehaviour,IDamage
     /// <summary>
     /// HPÇÃíl
     /// </summary>
-    [SerializeField] public static int _playerHP = 100;
+    [SerializeField] public int _playerHP = 100;
     int _maxHP;
 
     [SerializeField] GameObject HPController;
     [SerializeField] HpController _health;
     Animator _anim;
+    
     // Start is called before the first frame update
 
     public int HP
@@ -29,10 +30,10 @@ public class PlayerHP : MonoBehaviour,IDamage
         }
     }
 
-    private void Awake()
-    {
-        _playerHP = 100;
-    }
+    //private void Awake()
+    //{
+    //    _playerHP = 100;
+    //}
 
     void Start()
     {
@@ -47,7 +48,7 @@ public class PlayerHP : MonoBehaviour,IDamage
         _health.UpdateSlider(_playerHP);
         if(_debugMode)
         {
-            Invoke("CheatTime", 1f);
+            Invoke("CheatTime", 1.5f);
             //Debug.Log("ñ≥ìGéûä‘èIóπ");
         }
     }

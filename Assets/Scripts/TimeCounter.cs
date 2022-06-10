@@ -11,6 +11,7 @@ public class TimeCounter : MonoBehaviour
     //ŠÔ‚ğ•\¦‚·‚éTextŒ^‚Ì•Ï”
     [SerializeField] Text timeText;
     [SerializeField] Text _timeup;
+    public bool _movestop;
 
     // Update is called once per frame
     void Update()
@@ -26,6 +27,7 @@ public class TimeCounter : MonoBehaviour
         if (countdown <= 0)
         {
             _timeup.gameObject.SetActive(true);
+            _movestop = true;
         }
     }
 }

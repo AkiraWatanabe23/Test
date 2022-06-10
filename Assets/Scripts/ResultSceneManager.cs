@@ -8,7 +8,7 @@ public class ResultSceneManager : MonoBehaviour
 {
 
     [SerializeField] Text _scoreText;
-     GameObject gameManager;
+    GameObject gameManager;
     int _score = 10;
     int _minScore = 0;
 
@@ -30,7 +30,7 @@ public class ResultSceneManager : MonoBehaviour
             3.0f// アニメーション時間
             )
             .OnUpdate(
-            () => _scoreText.text = _minScore.ToString("D7")
+            () => _scoreText.text = _minScore.ToString("D6")
          ) ;
     }
 }

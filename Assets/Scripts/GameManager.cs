@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour //ゲームマネージャー
     public PlayerController _player;
     // <summary>シーン遷移した後にupdateで遷移の処理をされないようにするためのフラグ</summary>
     public bool isLoad;
-    string scene;
+    //string scene;
 
     private void Awake() //インスタンス化された瞬間に呼ばれるメソッド
                          //(Startメソッドより前に処理される)
@@ -23,25 +23,18 @@ public class GameManager : MonoBehaviour //ゲームマネージャー
             DontDestroyOnLoad(this.gameObject); //シーン切り替え時に破壊されないようにする
         }
 
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        //else
+        //{
+        //    Destroy(this.gameObject);
+        //}
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        sceneManager = GameObject.Find("SceneManager").GetComponent<Scenemanager>();
         _player = GameObject.Find("Player").GetComponent<PlayerController>();
         //scene = SceneManager.GetActiveScene().name;
         isGameOver = _player.isGameOver;
-        if (SceneManager.GetActiveScene().name == "TitleScene")
-        {
-            isLoad = false;
-            Debug.Log("isLoad");
-            score = 0;
-        }
     }
 
     // Update is called once per frame
@@ -51,13 +44,20 @@ public class GameManager : MonoBehaviour //ゲームマネージャー
         {
             isGameOver = _player.isGameOver;
             
-            if (isGameOver)
+            if (isGameOver) //もし isGameOver=true ならば
             {
                 sceneManager.Fade(false, "ResultScene");
                 isLoad = true;
                 isGameOver = false;
                 Debug.Log("isGameOver = false");
             }
+        }
+
+        if (SceneManager.GetActiveScene().name == "TitleScene")
+        {
+            isLoad = false;
+            Debug.Log("isLoad");
+            score = 0;
         }
     }
 }

@@ -18,6 +18,7 @@ public class Scenemanager : MonoBehaviour
         this._fadeImage.DOFade(duration: 1f, endValue: 1f).OnComplete(() => SceneManager.LoadScene(scene));
         //ImageのColorは透明に設定
         GameManager.instance.score = 0; //TitleSceneに戻った時にScoreをリセットする
+        Debug.Log("Score Reset");
     }
     public void StartFadeIn()//フェードイン関数
     {
@@ -35,7 +36,7 @@ public class Scenemanager : MonoBehaviour
             //ImageのColorは真っ黒に設定
         }
         //フェードアウト関数と同じ処理
-        else//type = false:panelをactivにした後Scene遷移するからstring sceneの記述が必要
+        else//type = false:panelをactiveにした後Scene遷移するからstring sceneの記述が必要
         {
             _fadeImage.gameObject.SetActive(true);
             this._fadeImage.DOFade(duration: 1f, endValue: 1f).OnComplete(() => SceneManager.LoadScene(scene));

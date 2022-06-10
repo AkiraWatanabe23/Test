@@ -40,17 +40,18 @@ public class GameManager : MonoBehaviour //ゲームマネージャー
     // Update is called once per frame
     void Update()
     {
-        if (!isLoad)
+        if (!isLoad && SceneManager.GetActiveScene().name != "ResultScene")
         {
             isGameOver = _player.isGameOver;
             
             if (isGameOver) //もし isGameOver=true ならば
             {
                 sceneManager.Fade(false, "ResultScene");
-                isLoad = true;
                 isGameOver = false;
+                isLoad = true;
                 Debug.Log("isGameOver = false");
             }
+           
         }
 
         if (SceneManager.GetActiveScene().name == "TitleScene")

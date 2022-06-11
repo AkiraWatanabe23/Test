@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour //ゲームマネージャー
     public Scenemanager sceneManager;
     public bool isGameOver;
     public PlayerController _player;
+    public int _enemyHP;
+    public EnemyScript _boss;
     // <summary>シーン遷移した後にupdateで遷移の処理をされないようにするためのフラグ</summary>
     public bool isLoad;
     //string scene;
@@ -33,8 +35,10 @@ public class GameManager : MonoBehaviour //ゲームマネージャー
     void Start()
     {
         _player = GameObject.Find("Player").GetComponent<PlayerController>();
+        _boss = GameObject.Find("StageBoss").GetComponent<EnemyScript>();
         //scene = SceneManager.GetActiveScene().name;
         isGameOver = _player.isGameOver;
+        _enemyHP = _boss._enemyHP;
     }
 
     // Update is called once per frame
@@ -43,13 +47,14 @@ public class GameManager : MonoBehaviour //ゲームマネージャー
         if (!isLoad && SceneManager.GetActiveScene().name != "ResultScene")
         {
             isGameOver = _player.isGameOver;
-            
-            if (isGameOver) //if文の中でbool型に'!'がない場合、true ある場合、false
+            _enemyHP = _boss._enemyHP;
+
+            if (isGameOver || _enemyHP <= 0) //if文の中でbool型に'!'がない場合、true ある場合、false
             {
                 sceneManager.Fade(false, "ResultScene");
                 isGameOver = false;
                 isLoad = true;
-                Debug.Log("isGameOver = false");
+                Debug.Log("GameEnd");
             }
            
         }

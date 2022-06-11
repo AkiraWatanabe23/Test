@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class EnemyScript : MonoBehaviour, IDamage
 {
 
-    [Header("EnemyのHP"), SerializeField] public int _enemyHP = 1;
-    [Header("Enemyの攻撃値"), SerializeField] public int _damageValue = 2;
+    [Header("EnemyのHP"), SerializeField] public int _enemyHP; //intの既定値は0
+    [Header("Enemyの攻撃値"), SerializeField] public int _damageValue;
     //[Header("Enemyの保有ポイント"), SerializeField] public int _receivePoint = 2;
     [Header("Enemyを倒した時の獲得ポイント"), SerializeField] public int _getPoint;
     //[SerializeField] Text _enemyDeath;
@@ -38,7 +38,6 @@ public class EnemyScript : MonoBehaviour, IDamage
 
     void OnCollisionEnter2D(Collision2D col)
     {
-
         if (col.gameObject.TryGetComponent(out IDamage damege))
         {
             damege.ReceiveDamage(2);

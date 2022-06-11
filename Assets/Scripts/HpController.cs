@@ -29,8 +29,9 @@ public class HpController : MonoBehaviour
     public void UpdateSlider(int hp)
     {
         //Debug.Log("Slider");
-        hp = Mathf.Clamp(hp, 0, _maxHP);//(現在の値,最小値,最大値)ここで制限している
-        hpSlider.value = hp;//hpSliderの値にプレイヤーのhpを代入する
+        hp = Mathf.Clamp(hp, 0, _maxHP); //(現在の値,最小値,最大値)ここで制限している
+                                         // 今回の場合、hpの値の範囲を示している
+        hpSlider.value = hp; //hpSliderの値にプレイヤーのhpを代入する
     }
 
     void LateUpdate()

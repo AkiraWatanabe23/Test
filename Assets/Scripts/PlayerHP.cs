@@ -20,11 +20,11 @@ public class PlayerHP : MonoBehaviour,IDamage
 
     public int HP
     {
-        set
+        set //ïœçX
         {
             _playerHP = Mathf.Clamp(value, 0, _maxHP);
         }
-        get
+        get //éÊìæ
         {
             return _playerHP;
         }
@@ -48,7 +48,7 @@ public class PlayerHP : MonoBehaviour,IDamage
         _health.UpdateSlider(_playerHP);
         if(_debugMode)
         {
-            Invoke("CheatTime", 1.5f);
+            Invoke("CheatTime", 1f);
             //Debug.Log("ñ≥ìGéûä‘èIóπ");
         }
     }
@@ -60,6 +60,7 @@ public class PlayerHP : MonoBehaviour,IDamage
             _playerHP -= damage;
             _anim.SetTrigger("Hurt");
             _debugMode = true;
+            Debug.Log("getDamage");
         }
     }
 

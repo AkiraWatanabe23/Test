@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour //ゲームマネージャー
         {
             isGameOver = _player.isGameOver;
             
-            if (isGameOver) //もし isGameOver=true ならば
+            if (isGameOver) //if文の中でbool型に'!'がない場合、true ある場合、false
             {
                 sceneManager.Fade(false, "ResultScene");
                 isGameOver = false;

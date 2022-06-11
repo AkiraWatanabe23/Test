@@ -14,15 +14,15 @@ public class PlayerController : MonoBehaviour
 
     //variable for how fast player runs//
     private float speed = 5f;
-    public bool isAttack;
+    public bool isAttack; //bool型の既定値 ... false
     public bool isReturn;
 
     private bool facingRight = true;
     private Animator anim;
-    bool grounded = false;//接地判定
+    bool grounded; //接地判定
     public Transform groundCheck;
     float groundRadius = 0.2f;
-    public LayerMask whatIsGround;//レイヤーマスク
+    public LayerMask whatIsGround; //レイヤーマスク
 
     //variable for how high player jumps//
     [SerializeField]
@@ -39,15 +39,15 @@ public class PlayerController : MonoBehaviour
     public GameObject _dead;
     bool _isMove = false;
 
-    bool isDamage;
+    //bool isDamage;
     [SerializeField] PlayerHP playerhp;
     [HideInInspector] public bool isGameOver;
 
     /// <summary>Audio設定</summary>
-    [Header("AudioSourceをアタッチ"), SerializeField] private AudioSource _audio;//コンポーネント
-    [Header("BGMファイルからattackBGMを入れる"), SerializeField] private AudioClip _attackSound;//BGM
-    [Header("BGMファイルからdamageBGMを入れる"), SerializeField] private AudioClip _damageSound;//BGM
-    [Header("BGMファイルからjumpBGMを入れる"), SerializeField] private AudioClip _jumpSound;//BGM
+    [Header("AudioSourceをアタッチ"), SerializeField] private AudioSource _audio; //コンポーネント
+    [Header("BGMファイルからattackBGMを入れる"), SerializeField] private AudioClip _attackSound; //BGM
+    //[Header("BGMファイルからdamageBGMを入れる"), SerializeField] private AudioClip _damageSound; //BGM
+    [Header("BGMファイルからjumpBGMを入れる"), SerializeField] private AudioClip _jumpSound; //BGM
 
 
     void Start()
@@ -64,11 +64,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleInput();
-        isDamage = playerhp._debugMode;
-        if (isDamage)
-        {
-            Play(_damageSound, 0.5f);
-        }
+        //isDamage = playerhp._debugMode;
+        //if (isDamage)
+        //{
+        //    Play(_damageSound, 0.2f); //void PlayerController.Play(AudioClip audioClip,float volume)
+        //}
 
         if (_timeUp.GetComponent<TimeCounter>()._movestop == true)
         {
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //attack and jump//
+    //attack jump dead//
     private void HandleInput() //playerの行動処理
     {
         //攻撃アニメーション、サウンド
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
             anim.SetFloat("Speed", 0);
             anim.SetTrigger("Attack");
             //isAttack = true;
-            Play(_attackSound, 0.2f);
+            Play(_attackSound, 0.2f); 
         }
 
         //ジャンプ処理
@@ -161,8 +161,7 @@ public class PlayerController : MonoBehaviour
             jump_count = 0;//ジャンプカウントをリセットする
         }
 
-        //dead animation for testing//
-        //HP0になった時の処理
+        //HP0になった(死亡)時の処理
         if (_dead.GetComponent<PlayerHP>()._playerHP <= 0)
         {
             anim.SetBool("Dead", true);
@@ -175,7 +174,6 @@ public class PlayerController : MonoBehaviour
 
     private void Flip(float horizontal)
     {
-
         facingRight = !facingRight;
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;

@@ -1,69 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour //ゲームマネージャー
+public class GameManager : MonoBehaviour
 {
-    public static GameManager instance = null;
-    public int score;
+    [SerializeField] static public float _countdown; //制限時間-クリアまでかかった時間
+    [SerializeField] static public int _score; // Project 全体に一つしかないスコア
+    [Header("制限時間"), SerializeField] public float _totalTime;
+
+    [Header("Canvasからスコア表示しているTextObjectをアタッチ")]
+    [SerializeField] public Text _scoreText;
+    [Header("Canvasからカウントダウン表示しているTextObjectをアタッチ")]
+    [SerializeField] public Text _countText;
+
     public Scenemanager sceneManager;
     public bool isGameOver;
     public PlayerController _player;
     public int _enemyHP;
     public EnemyScript _boss;
-    // <summary>シーン遷移した後にupdateで遷移の処理をされないようにするためのフラグ</summary>
-    public bool isLoad;
-    //string scene;
 
-    private void Awake() //インスタンス化された瞬間に呼ばれるメソッド
-                         //(Startメソッドより前に処理される)
-    {
-        if (instance == null) //シングルトン(?) ... 1つしか存在しないもの
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject); //シーン切り替え時に破壊されないようにする
-        }
-
-        //else
-        //{
-        //    Destroy(this.gameObject);
-        //}
-    }
+    // <summary> シーン遷移した後にupdateで遷移の処理をされないようにするためのフラグ </summary>
+    //[HideInInspector] public bool isLoad;
 
     // Start is called before the first frame update
     void Start()
     {
         _player = GameObject.Find("Player").GetComponent<PlayerController>();
         _boss = GameObject.Find("StageBoss").GetComponent<EnemyScript>();
-        //scene = SceneManager.GetActiveScene().name;
         isGameOver = _player.isGameOver;
         _enemyHP = _boss._enemyHP;
+
+
+        //スコアの初期化
+        _countdown = _totalTime;
+        _score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isLoad && SceneManager.GetActiveScene().name != "ResultScene")
-        {
-            isGameOver = _player.isGameOver;
-            _enemyHP = _boss._enemyHP;
+        //時間の処理
+        _totalTime -= Time.deltaTime;
+        _countdown -= _totalTime;
 
-            if (isGameOver || _enemyHP <= 0) //if文の中でbool型に'!'がない場合、true ある場合、false
-            {
-                sceneManager.Fade(false, "ResultScene");
-                isGameOver = false;
-                isLoad = true;
-                Debug.Log("GameEnd");
-            }
-           
-        }
+        //Text表示の処理
+        _countText.text = _totalTime.ToString();
+        _scoreText.text = "Score  :  " + _score.ToString();
 
-        if (SceneManager.GetActiveScene().name == "TitleScene")
+        isGameOver = _player.isGameOver;
+        _enemyHP = _boss._enemyHP; // Boss の HP を監視
+
+        if (isGameOver || _enemyHP <= 0)
         {
-            isLoad = false;
-            Debug.Log("isLoad");
-            score = 0;
+            Debug.Log("GameEnd");
+            isGameOver = false;
+            sceneManager.Fade(false, "ResultScene");
+            //isLoad = true;
         }
     }
 }

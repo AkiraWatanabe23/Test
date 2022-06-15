@@ -30,11 +30,6 @@ public class PlayerHP : MonoBehaviour,IDamage
         }
     }
 
-    //private void Awake()
-    //{
-    //    _playerHP = 100;
-    //}
-
     void Start()
     {
         _maxHP = HPController.GetComponent<HpController>()._maxHP;

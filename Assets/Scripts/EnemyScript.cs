@@ -1,46 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EnemyScript : MonoBehaviour, IDamage
 {
 
     [Header("EnemyのHP"), SerializeField] public int _enemyHP; //intの既定値は0
     [Header("Enemyの攻撃値"), SerializeField] public int _damageValue;
-    //[Header("Enemyの保有ポイント"), SerializeField] public int _receivePoint = 2;
     [Header("Enemyを倒した時の獲得ポイント"), SerializeField] public int _getPoint;
-    //[SerializeField] Text _enemyDeath;
+    GameObject _gameManager;
 
-    /// <summary>
-	/// Audio設定
-	/// </summary>
+    // <summary> Audio設定 </summary>
 	[Header("AudioSourceをアタッチ"), SerializeField] private AudioSource _audio; //コンポーネント
     [Header("BGMファイルから入れる"), SerializeField] private AudioClip _damageSound; //BGM
 
     void Start()
     {
-        //gamemanager = GameObject.Find("GameManager");
-        //_enemyHP = 1;
+        _gameManager = GameObject.Find("GameManager");
     }
 
     private void Update()
     {
         if (_enemyHP <= 0)
         {
-            //gamemanager.GetComponent<IGetValue>().GetPoint(_receivePoint);
-            //Instantiate(_enemyDeath);
-            Destroy(this.gameObject);
-            GameManager.instance.score += _getPoint;
-            //_enemyDeath.gameObject.SetActive(true);
+            GameManager._score += _getPoint; //enemy を倒したらスコア加算
+            Destroy(this.gameObject); //Destroy の処理は最後に書く
         }
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.TryGetComponent(out IDamage damege))
+        if (col.gameObject.TryGetComponent(out IDamage damage))
         {
-            damege.ReceiveDamage(2);
+            damage.ReceiveDamage(_damageValue);
             Debug.Log("damage");
         }
     }

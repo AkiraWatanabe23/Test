@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 {
 
     //variable for how fast player runs//
-    private float speed = 5f;
+    private float speed = 4.5f;
     public bool isAttack; //bool型の既定値 ... false
     public bool isReturn;
 
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     bool _isMove = false;
 
     //bool isDamage;
-    [SerializeField] PlayerHP playerhp;
+    [SerializeField] PlayerHP _playerHP;
     [HideInInspector] public bool isGameOver;
 
     /// <summary>Audio設定</summary>
@@ -117,48 +117,51 @@ public class PlayerController : MonoBehaviour
     //attack jump dead//
     private void HandleInput() //playerの行動処理
     {
-        //攻撃アニメーション、サウンド
-        //　↓左shiftキーを押したとき　　　 ↓死んでない　↓地面に立っている
-        if (Input.GetButtonDown("Fire1") && !dead && grounded && !jump)
-                                                                //↑ジャンプしてない
+        if(_isMove)
         {
-            //attack = true;
-            anim.SetFloat("Speed", 0);
-            anim.SetTrigger("Attack");
-            //isAttack = true;
-            Play(_attackSound, 0.2f); 
-        }
-
-        //ジャンプ処理
-        if (Input.GetKeyDown(KeyCode.Space)) //スペースキーが押されたフレームのみ実行する
-        {
-            //接地状態かつ死んでいない状態であればジャンプできる。
-            //またはジャンプカウントが1未満の時でもジャンプできる。
-            if ((grounded && !dead) || jump_count < 1)
+            //攻撃アニメーション、サウンド
+            //　↓左shiftキーを押したとき　　　 ↓死んでない　↓地面に立っている
+            if (Input.GetButtonDown("Fire1") && !dead && grounded && !jump)
+                                                                    //↑ジャンプしてない
             {
-                jump = true;
-                Debug.Log(grounded);
-                rb.AddForce(new Vector2(0, jumpForce));
-                jump_count++;
-                Play(_jumpSound, 0.2f);
+                //attack = true;
+                anim.SetFloat("Speed", 0);
+                anim.SetTrigger("Attack");
+                //isAttack = true;
+                Play(_attackSound, 0.2f); 
             }
-        }
 
-        //スペースキーが押されておらず、非接地状態では以下の処理が行われる
-        else if (!grounded)
-        {
-            anim.SetFloat("Speed", 0);//run animation をオフにする
-            anim.SetBool("Jump", true);//jump animation をオンにする
-            anim.SetBool("Ground", false);
-        }
+            //ジャンプ処理
+            if (Input.GetKeyDown(KeyCode.Space)) //スペースキーが押されたフレームのみ実行する
+            {
+                //接地状態かつ死んでいない状態であればジャンプできる。
+                //またはジャンプカウントが1未満の時でもジャンプできる。
+                if ((grounded && !dead) || jump_count < 1)
+                {
+                    jump = true;
+                    Debug.Log(grounded);
+                    rb.AddForce(new Vector2(0, jumpForce));
+                    jump_count++;
+                    Play(_jumpSound, 0.2f);
+                }
+            }
 
-        //スペースキーが押されておらず、接地状態では以下の処理が行われる
-        else if (grounded)
-        {
-            anim.SetBool("Jump", false);//jump animation をオフにする
-            anim.SetBool("Ground", true);
-            jump = false;
-            jump_count = 0;//ジャンプカウントをリセットする
+            //スペースキーが押されておらず、非接地状態では以下の処理が行われる
+            else if (!grounded)
+            {
+                anim.SetFloat("Speed", 0);//run animation をオフにする
+                anim.SetBool("Jump", true);//jump animation をオンにする
+                anim.SetBool("Ground", false);
+            }
+
+            //スペースキーが押されておらず、接地状態では以下の処理が行われる
+            else if (grounded)
+            {
+                anim.SetBool("Jump", false);//jump animation をオフにする
+                anim.SetBool("Ground", true);
+                jump = false;
+                jump_count = 0;//ジャンプカウントをリセットする
+            }
         }
 
         //HP0になった(死亡)時の処理

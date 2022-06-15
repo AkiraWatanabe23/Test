@@ -22,7 +22,7 @@ public class FireScript : MonoBehaviour, IDamage
     {
         if(col.gameObject.TryGetComponent(out IDamage damage))
         {
-            damage.ReceiveDamage(5);
+            damage.ReceiveDamage(_fireDamage);
             Debug.Log("damage");
         }
     }

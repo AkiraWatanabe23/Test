@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class TimeCounter : MonoBehaviour
 {
     //カウントダウン
-    [SerializeField] float countdown = 1000;
+    [SerializeField] public float countdown;
 
     //時間を表示するText型の変数
     [SerializeField] Text timeText;
     [SerializeField] Text _timeup;
+    [SerializeField] Button _toResult;
     public bool _movestop;
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class TimeCounter : MonoBehaviour
         //countdownが0以下になったとき
         if (countdown <= 0)
         {
+            _toResult.gameObject.SetActive(true);
             _timeup.gameObject.SetActive(true);
             _movestop = true;
         }

@@ -10,6 +10,8 @@ TagManager:
   - Ground
   - Pickup
   - Boss
+  - attack
+  - FallFire
   layers:
   - Default
   - TransparentFX

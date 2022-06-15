@@ -12,13 +12,15 @@ GameObject:
   - component: {fileID: 4734508128238657114}
   - component: {fileID: -6406983691985472560}
   - component: {fileID: 5290617013633597258}
+  - component: {fileID: -250881760746477034}
+  - component: {fileID: 3298512141305727978}
   m_Layer: 0
   m_Name: fire_attack
   m_TagString: attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1551681558425439234
 Transform:
   m_ObjectHideFlags: 0
@@ -28,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8370357138427538743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.3, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -131,3 +133,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-250881760746477034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370357138427538743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a2dc4fce497494fb6e1e4942e76a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 7
+  _maxDistance: 50
+  _lifeTime: 1.5
+  _interval: 2
+  _createObject: {fileID: 8370357138427538743}
+  _isReturn: 0
+--- !u!114 &3298512141305727978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370357138427538743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcbf00e3364b0144859a71e7535522a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fireDamage: 3

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7407543006116053871}
   - component: {fileID: 1197840818007035188}
   - component: {fileID: 2810260338559189527}
-  - component: {fileID: 4347712476892600801}
   m_Layer: 0
   m_Name: PawnBlack
   m_TagString: Enemy
@@ -30,7 +29,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 5520300087148479477}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -98,7 +98,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.11425221, y: 1.3465433}
+  m_Offset: {x: 0.05172062, y: 1.334037}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.44899458, y: 0.015631935}
@@ -109,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.24, y: 2.7799997}
+  m_Size: {x: 1.3645573, y: 2.754987}
   m_EdgeRadius: 0
 --- !u!114 &2810260338559189527
 MonoBehaviour:
@@ -126,24 +126,85 @@ MonoBehaviour:
   _enemyHP: 20
   _damageValue: 3
   _getPoint: 10
+  _attackObject: {fileID: 8370357138427538743, guid: bc5b9ca85c2060849b099663ea4237bf,
+    type: 3}
+  _muzzle: {fileID: 2038965500102335167, guid: 4cad7f1572ba58a428a6131753a85dd9, type: 3}
+  _interval: 2
+  _playerTransform: {fileID: 0}
   _audio: {fileID: 0}
   _damageSound: {fileID: 8300000, guid: 99fbaa192fead784fb0f3a55790d0c67, type: 3}
---- !u!95 &4347712476892600801
-Animator:
-  serializedVersion: 3
+--- !u!1001 &6418937379061633015
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 460197099713801953}
+    m_Modifications:
+    - target: {fileID: 1551681558425439234, guid: bc5b9ca85c2060849b099663ea4237bf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551681558425439234, guid: bc5b9ca85c2060849b099663ea4237bf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551681558425439234, guid: bc5b9ca85c2060849b099663ea4237bf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551681558425439234, guid: bc5b9ca85c2060849b099663ea4237bf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551681558425439234, guid: bc5b9ca85c2060849b099663ea4237bf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551681558425439234, guid: bc5b9ca85c2060849b099663ea4237bf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551681558425439234, guid: bc5b9ca85c2060849b099663ea4237bf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551681558425439234, guid: bc5b9ca85c2060849b099663ea4237bf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551681558425439234, guid: bc5b9ca85c2060849b099663ea4237bf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551681558425439234, guid: bc5b9ca85c2060849b099663ea4237bf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551681558425439234, guid: bc5b9ca85c2060849b099663ea4237bf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370357138427538743, guid: bc5b9ca85c2060849b099663ea4237bf,
+        type: 3}
+      propertyPath: m_Name
+      value: fire_attack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bc5b9ca85c2060849b099663ea4237bf, type: 3}
+--- !u!4 &5520300087148479477 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1551681558425439234, guid: bc5b9ca85c2060849b099663ea4237bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 6418937379061633015}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6429465231435040535}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2ca2bc96bca745d4bb1ff8b584e5bb57, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CreateFire : MonoBehaviour
 {
-
     [Header("生成するオブジェクト"),SerializeField] private GameObject _createObject;
     public float _minTime;
     public float _maxTime;

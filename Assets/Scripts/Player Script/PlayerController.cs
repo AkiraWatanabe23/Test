@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 {
 
     //variable for how fast player runs//
-    private float speed = 4.5f;
+    private float speed = 5f;
     public bool isAttack; //bool型の既定値 ... false
     public bool isReturn;
 

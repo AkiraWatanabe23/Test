@@ -41,7 +41,7 @@ public class AttackFireMovement : MonoBehaviour
     {
         if (col.gameObject.tag == "Player" || col.gameObject.tag == "Enemy" || col.gameObject.tag == "attack")
         {
-            Destroy(gameObject, 0.2f);
+            Destroy(gameObject, 0.1f);
         }
     }
 

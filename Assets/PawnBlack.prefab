@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyHP: 20
   _damageValue: 3
-  _getPoint: 10
+  _getPoint: 20
   _attackObject: {fileID: 8370357138427538743, guid: bc5b9ca85c2060849b099663ea4237bf,
     type: 3}
   _muzzle: {fileID: 2038965500102335167, guid: 4cad7f1572ba58a428a6131753a85dd9, type: 3}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a2dc4fce497494fb6e1e4942e76a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interval: 2.5
+  _interval: 2
   _createObject: {fileID: 8370357138427538743, guid: bc5b9ca85c2060849b099663ea4237bf,
     type: 3}
   _rightWidth: 5

@@ -26,17 +26,17 @@ public class EnemyScript : MonoBehaviour, IDamage
         _player = GameObject.FindGameObjectWithTag("Player").transform; //++
         _playerTransform = _player; //++
         _gameManager = GameObject.Find("GameManager");
-    }
 
-    private void Update()
-    {
-        if(_player.transform.position.x - _startPosition.x <= 15 && _player.transform.position.x - _startPosition.x >= -15)
+        if (_player.transform.position.x - _startPosition.x <= 15 && _player.transform.position.x - _startPosition.x >= -15)
         {
             Debug.Log("çUåÇ");
             GameObject _fire = Instantiate(_attackObject);
             _fire.transform.position = _muzzle.position;
         }
+    }
 
+    private void Update()
+    {
         if (_enemyHP <= 0)
         {
             GameManager._score += _getPoint; //enemy Çì|ÇµÇΩÇÁÉXÉRÉAâ¡éZ

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class FireAttack : MonoBehaviour
 {
-    [Header("スピード")] public float _speed;
-    [Header("最大移動範囲")] public float _maxDistance;
-    [Header("経過後に破壊")] public float _lifeTime;
     [Header("攻撃間隔")] public float _interval; //++
     [Header("生成するオブジェクト"), SerializeField] private GameObject _createObject; //++
     EnemyScript _muzzle;
+    [SerializeField] float _rightWidth;
+    Transform _muzzlePos;
+    private float _lifeTime = 0f;
     private PlayerController _player;
+    Transform _playerPos;
     private EnemyScript _enemy;
     public bool _isReturn;
 
@@ -19,30 +20,31 @@ public class FireAttack : MonoBehaviour
     void Start()
     {
         _player = GameObject.Find("Player").GetComponent<PlayerController>();
-        _muzzle = GameObject.Find("enemy_attack_muzzle").GetComponent<EnemyScript>();
+        _playerPos = GameObject.Find("Player").transform;
+        _muzzlePos = transform.GetChild(1);
+        //配列の変数名[欲しい要素のインデックス(添字)].transform;
         _enemy = GameObject.FindWithTag("Enemy").GetComponent<EnemyScript>();
-        Rigidbody2D _rb = GetComponent<Rigidbody2D>();
-
-        if(!_player.isReturn)
-        {
-            _rb.velocity = Vector2.left * _speed;
-        }
-        else
-        {
-            _rb.velocity = Vector2.right * _speed;
-        }
-
-        Destroy(this.gameObject, _lifeTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_lifeTime <= _interval)
+        if ((transform.position.x - _playerPos.position.x) > 0f)//左の場合
         {
-            GameObject fire = Instantiate(_createObject);
-            fire.transform.position = _muzzle.transform.position;
-            _interval = 0;
+            if (_lifeTime > _interval)
+            {
+                Instantiate(_createObject, _muzzlePos.position, Quaternion.identity);
+                _lifeTime = 0f;
+            }
         }
+        else//右の場合
+        {
+            if (_lifeTime > _interval)
+            {
+                Instantiate(_createObject, new Vector3(_muzzlePos.position.x + _rightWidth, _muzzlePos.position.y, 0f), Quaternion.identity);
+                _lifeTime = 0f;
+            }
+        }
+        _lifeTime += Time.deltaTime;
     }
 }

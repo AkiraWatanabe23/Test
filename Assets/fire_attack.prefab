@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4734508128238657114}
   - component: {fileID: -6406983691985472560}
   - component: {fileID: 5290617013633597258}
-  - component: {fileID: -250881760746477034}
   - component: {fileID: 3298512141305727978}
+  - component: {fileID: 5548720978435196772}
   m_Layer: 0
   m_Name: fire_attack
   m_TagString: attack
@@ -120,37 +120,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8370357138427538743}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-250881760746477034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8370357138427538743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95a2dc4fce497494fb6e1e4942e76a4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 7
-  _maxDistance: 50
-  _lifeTime: 1.5
-  _interval: 2
-  _createObject: {fileID: 8370357138427538743}
-  _isReturn: 0
 --- !u!114 &3298512141305727978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,3 +146,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fireDamage: 3
+--- !u!114 &5548720978435196772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370357138427538743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289eda5b9842dd44d8c18c5f865578be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTime: 5
+  _speed: 10

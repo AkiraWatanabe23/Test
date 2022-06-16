@@ -29,6 +29,7 @@ public class FireScript : MonoBehaviour, IDamage
 
     public void ReceiveDamage(int damage)
     {
-        throw new System.NotImplementedException();
+        //丸岡が消した、謎のコード。要チェック
+        //throw new System.NotImplementedException();
     }
 }

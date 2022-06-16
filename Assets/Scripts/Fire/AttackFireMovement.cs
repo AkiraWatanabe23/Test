@@ -26,21 +26,31 @@ public class AttackFireMovement : MonoBehaviour
         {
             _rigidBody2D.velocity = Vector2.right * _speed;
         }
+
         Destroy(this.gameObject, _lifeTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        _rigidBody2D.velocity = _rigidBody2D.velocity.normalized * _speed;
+        _rigidBody2D.velocity = _rigidBody2D.velocity.normalized * _speed; //単位ベクトル
     }
 
     // <summary> 衝突したとき </summary>
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player" || col.gameObject.tag == "Enemy" || col.gameObject.tag == "attack")
         {
             Destroy(gameObject, 0.2f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D tri)
+    {
+        if (tri.gameObject.tag == "Bat")
+        {
+            Debug.Log("bat");
+            _rigidBody2D.velocity = _rigidBody2D.velocity.normalized * _speed * -1;
         }
     }
 }

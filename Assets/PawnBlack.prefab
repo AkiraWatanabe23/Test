@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1197840818007035188}
   - component: {fileID: 2810260338559189527}
   - component: {fileID: 1220783891}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PawnBlack
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a2dc4fce497494fb6e1e4942e76a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interval: 3
+  _interval: 2
   _createObject: {fileID: 8370357138427538743, guid: bc5b9ca85c2060849b099663ea4237bf,
     type: 3}
   _rightWidth: 5
@@ -220,6 +220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8370357138427538743, guid: bc5b9ca85c2060849b099663ea4237bf,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370357138427538743, guid: bc5b9ca85c2060849b099663ea4237bf,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -242,6 +247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: enemy_attack_muzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981128189486257165, guid: 4cad7f1572ba58a428a6131753a85dd9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2038965500102335167, guid: 4cad7f1572ba58a428a6131753a85dd9,
         type: 3}

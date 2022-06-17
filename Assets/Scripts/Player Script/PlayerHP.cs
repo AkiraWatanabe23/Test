@@ -46,6 +46,11 @@ public class PlayerHP : MonoBehaviour,IDamage
             Invoke("CheatTime", 1f);
             //Debug.Log("–³“GŽžŠÔI—¹");
         }
+
+        if(_playerHP > _maxHP)
+        {
+            _playerHP = _maxHP;
+        }
     }
 
     public void ReceiveDamage(int damage)

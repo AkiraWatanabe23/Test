@@ -7,20 +7,17 @@ using DG.Tweening;
 
 public class ResultSceneManager : MonoBehaviour
 {
-
     [SerializeField] Text _scoreText;
     GameObject _resultText;
 
     //このスクリプト内のみで使う
     int _score;
     int _minScore;
-    float _countdown;
+    //float _countdown;
 
     private void Awake()
     {
-        //_count = GameObject.Find("Timer").GetComponent<TimeCounter>();
-        //countdown = (int)Math.Ceiling(_count.countdown); //float→int に変更する
-        _countdown = (int)GameManager._countdown;
+        //_countdown = (int)GameManager._countdown;
         _score = GameManager._score;
         _resultText = GameObject.Find("HyoukaText");
     }
@@ -40,16 +37,19 @@ public class ResultSceneManager : MonoBehaviour
         //不等号の部分は、「ラムダ式」てのを使ってるらしい... まだ使わないけど、要勉強
 
         Text resultText = _resultText.GetComponent<Text>();
-        if(_score < 150)
+
+        if(_score == 0)
+        {
+            resultText.text = "Let's try again!";
+        }
+        else if(_score < 150)
         {
             resultText.text = "Good!";
         }
-
-        else if(_score < 200)
+        else if(_score < 250)
         {
             resultText.text = "Great!!";
         }
-
         else
         {
             resultText.text = "Excellent!!";

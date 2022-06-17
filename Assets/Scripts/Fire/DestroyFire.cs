@@ -11,7 +11,7 @@ public class DestroyFire : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
-            Destroy(gameObject, 0.2f);
+            Destroy(gameObject, 0.1f);
         }
     }
     // Start is called before the first frame update

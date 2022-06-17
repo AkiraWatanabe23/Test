@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,8 +19,14 @@ public class GameManager : MonoBehaviour
     public Scenemanager sceneManager;
     public bool isGameOver;
     public PlayerController _player;
-    public int _enemyHP;
+    public PlayerHP playerHP;
+    public int _playerHP;
     public EnemyScript _boss;
+    public int _enemyHP;
+
+    bool _result = false;
+    bool _rTrigger = true;
+
 
     // <summary> シーン遷移した後にupdateで遷移の処理をされないようにするためのフラグ </summary>
     //[HideInInspector] public bool isLoad;
@@ -28,10 +35,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _player = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerHP = GameObject.Find("Player").GetComponent<PlayerHP>();
         _boss = GameObject.Find("StageBoss").GetComponent<EnemyScript>();
         isGameOver = _player.isGameOver;
+        _playerHP = playerHP._playerHP;
         _enemyHP = _boss._enemyHP;
-
 
         //スコアの初期化
         _countdown = _totalTime;
@@ -47,17 +55,51 @@ public class GameManager : MonoBehaviour
 
         //Text表示の処理
         _countText.text = _totalTime.ToString();
-        _scoreText.text = "Score  :  " + _score.ToString();
+        _scoreText.text = "Score : " + _score.ToString();
 
         isGameOver = _player.isGameOver;
         _enemyHP = _boss._enemyHP; // Boss の HP を監視
 
-        if (isGameOver || _enemyHP <= 0)
+        if (_result)
         {
-            Debug.Log("GameEnd");
+            if (_playerHP < 20)
+            {
+                _score *= 2;
+                Debug.Log(_score);
+            }
+            else if (_playerHP < 40)
+            {
+                _score = 3;
+                Debug.Log(_score);
+            }
+            else if (_playerHP < 70)
+            {
+                _score *= 5;
+                Debug.Log(_score);
+            }
+            else
+            {
+                _score *= 10;
+                Debug.Log(_score);
+            }
+
+            Debug.Log("GameFinish");
             isGameOver = false;
             sceneManager.Fade(false, "ResultScene");
             //isLoad = true;
+        }
+
+        if (isGameOver || _enemyHP <= 0)
+        {
+            if (_rTrigger)
+            {
+                _rTrigger = false;
+                _result = true;
+            }
+            else
+            {
+                _result = false;
+            }
         }
     }
 }

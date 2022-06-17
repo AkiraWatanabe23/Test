@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,15 +37,15 @@ public class ResultSceneManager : MonoBehaviour
 
         Text resultText = _resultText.GetComponent<Text>();
 
-        if(_score == 0)
+        if (_score == 0)
         {
             resultText.text = "Let's try again!";
         }
-        else if(_score < 150)
+        else if (_score < 1000)
         {
             resultText.text = "Good!";
         }
-        else if(_score < 250)
+        else if (_score < 2000)
         {
             resultText.text = "Great!!";
         }

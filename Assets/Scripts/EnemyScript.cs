@@ -9,11 +9,9 @@ public class EnemyScript : MonoBehaviour, IDamage
     [Header("Enemyの攻撃値"), SerializeField] public int _damageValue;
     [Header("Enemyを倒した時の獲得ポイント"), SerializeField] public int _getPoint;
     Vector2 _startPosition;
-    GameObject _gameManager;
 
     [Header("攻撃オブジェクト")] public GameObject _attackObject; //++
     [Header("攻撃発射位置")] public Transform _muzzle; //++
-    [SerializeField] Transform _playerTransform; //++
     Transform _player; //++
 
     // <summary> Audio設定 </summary>
@@ -24,8 +22,6 @@ public class EnemyScript : MonoBehaviour, IDamage
     {
         _startPosition = this.transform.position; //初期位置を取得
         _player = GameObject.FindGameObjectWithTag("Player").transform; //++
-        _playerTransform = _player; //++
-        _gameManager = GameObject.Find("GameManager");
 
         if (_player.transform.position.x - _startPosition.x <= 15 && _player.transform.position.x - _startPosition.x >= -15)
         {

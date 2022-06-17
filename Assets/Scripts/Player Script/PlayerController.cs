@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float jumpForce = 300f;
 
-    public Rigidbody2D rb { get; set; }
+    public Rigidbody2D _rb { get; set; }
 
     bool dead = false;
     bool attack = false;
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         _isMove = true;
         isGameOver = false;
         GetComponent<Rigidbody2D>().freezeRotation = true;
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
         _timeUp = GameObject.Find("Timer");
         _dead = GameObject.Find("Player");
@@ -95,9 +95,9 @@ public class PlayerController : MonoBehaviour
             {
                 if (!dead && !attack && !jump)
                 {
-                    anim.SetFloat("vSpeed", rb.velocity.y);
+                    anim.SetFloat("vSpeed", _rb.velocity.y);
                     anim.SetFloat("Speed", Mathf.Abs(horizontal));
-                    rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+                    _rb.velocity = new Vector2(horizontal * speed, _rb.velocity.y);
                 }
                 if (horizontal > 0 && !facingRight && !dead && !attack && !jump)
                 {
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
                 {
                     jump = true;
                     Debug.Log(grounded);
-                    rb.AddForce(new Vector2(0, jumpForce));
+                    _rb.AddForce(new Vector2(0, jumpForce));
                     jump_count++;
                     Play(_jumpSound, 0.2f);
                 }

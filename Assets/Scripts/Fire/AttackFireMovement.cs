@@ -15,8 +15,8 @@ public class AttackFireMovement : MonoBehaviour
         _playerPos = GameObject.Find("Player").transform;
         _rb = GetComponent<Rigidbody2D>();
 
-        /// <summary>火はプレイヤーがいる方向に飛んでいく</summary>
-        if ((transform.position.x - _playerPos.position.x) > 0f)
+        /// <summary> 火はプレイヤーがいる方向に飛んでいく </summary>
+        if((transform.position.x - _playerPos.position.x) > 0f)
         {
             _rb.velocity = Vector2.left * _speed;
         }
@@ -31,7 +31,7 @@ public class AttackFireMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _rb.velocity = _rb.velocity.normalized * _speed; //単位ベクトル
+        _rb.velocity = _rb.velocity.normalized * _speed; // velocity.normalized ... 単位ベクトル
     }
 
     // <summary> 衝突したとき </summary>
@@ -45,7 +45,7 @@ public class AttackFireMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D tri)
     {
-        if (tri.gameObject.tag == "Bat")
+        if(tri.gameObject.tag == "Bat")
         {
             Debug.Log("bat");
             _rb.velocity = _rb.velocity.normalized * _speed * -1;

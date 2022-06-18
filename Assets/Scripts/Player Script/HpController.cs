@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HpController : MonoBehaviour
 {
     [SerializeField] public int _maxHP = 100;
-    [HideInInspector] public Slider hpSlider;
+    [HideInInspector] public Slider _hpSlider;
     bool isReturn;
     GameObject _player;
     GameObject _canvas;
@@ -16,22 +16,20 @@ public class HpController : MonoBehaviour
     {
         _player = transform.root.gameObject;
         _canvas = transform.parent.gameObject;
-        hpSlider = GetComponent<Slider>();
+        _hpSlider = GetComponent<Slider>();
         isReturn = _player.GetComponent<PlayerController>().isReturn;
         //スライダー最大値の設定・開始されたら代入される
-        hpSlider.maxValue = _maxHP;
+        _hpSlider.maxValue = _maxHP;
     }
 
     // Update is called once per frame
-    /// <summary>
-    /// HPをスライダーに表示させるメソッド
-    /// </summary>
+
+    /// <summary> HPをスライダーに表示させるメソッド </summary>
     public void UpdateSlider(int hp)
     {
-        //Debug.Log("Slider");
         hp = Mathf.Clamp(hp, 0, _maxHP); //(現在の値,最小値,最大値)ここで制限している
                                          // 今回の場合、hpの値の範囲を示している
-        hpSlider.value = hp; //hpSliderの値にプレイヤーのhpを代入する
+        _hpSlider.value = hp; //hpSliderの値にプレイヤーのhpを代入する
     }
 
     void LateUpdate()

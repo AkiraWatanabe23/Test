@@ -6,10 +6,8 @@ using UnityEngine;
 public class PlayerHP : MonoBehaviour,IDamage
 {
     [Header("チェック入れると攻撃を受けない"),SerializeField] public bool _debugMode;
-    /// <summary>
-    /// HPの値
-    /// </summary>
-    [SerializeField] public int _playerHP = 100;
+    /// <summary> HPの値 </summary>
+    [SerializeField] public int _playerHP;
     int _maxHP;
 
     [SerializeField] GameObject HPController;
@@ -44,7 +42,7 @@ public class PlayerHP : MonoBehaviour,IDamage
         if(_debugMode)
         {
             Invoke("CheatTime", 1f);
-            //Debug.Log("無敵時間終了");
+            Debug.Log("CheatTime 終了");
         }
 
         if(_playerHP > _maxHP)

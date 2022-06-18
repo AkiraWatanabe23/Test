@@ -39,7 +39,7 @@ public class CreateFire : MonoBehaviour
 
     private Vector2 GetRandomPosition()
     {
-        float x = Random.Range(_xMinPosition, _xMaxPosition);
+        float x = Random.Range(_xMinPosition, _xMaxPosition); //w’è‚µ‚½ XÀ•W‚Ì”ÍˆÍ‚Ìƒ‰ƒ“ƒ_ƒ€‚ÈêŠ‚É fire‚ğ”­¶‚³‚¹‚é
 
         return new Vector2(x, 15f);
     }

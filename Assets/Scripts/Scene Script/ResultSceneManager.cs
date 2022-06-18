@@ -12,11 +12,9 @@ public class ResultSceneManager : MonoBehaviour
     //このスクリプト内のみで使う
     int _score;
     int _minScore;
-    //float _countdown;
 
     private void Awake()
     {
-        //_countdown = (int)GameManager._countdown;
         _score = GameManager._score;
         _resultText = GameObject.Find("HyoukaText");
     }
@@ -26,7 +24,6 @@ public class ResultSceneManager : MonoBehaviour
     {
         _score = GameManager._score;
 
-        //_scoreText.text = _score.ToString();
         DOTween.To(() => _minScore, (n) => _minScore = n, /*値の更新*/
                          _score, /*最終的な値*/ 3.0f /*アニメーション時間*/ )
                          .OnUpdate(() => _scoreText.text = _minScore.ToString("D4"));

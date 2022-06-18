@@ -901,6 +901,7 @@ RectTransform:
   - {fileID: 418095910}
   - {fileID: 1813201929}
   - {fileID: 2001805022}
+  - {fileID: 2141171257}
   m_Father: {fileID: 1191462641}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1116,7 +1117,6 @@ MonoBehaviour:
   isGameOver: 0
   _player: {fileID: 0}
   playerHP: {fileID: 0}
-  _playerHP: 0
   _boss: {fileID: 0}
   _enemyHP: 0
 --- !u!4 &1593505982
@@ -1208,7 +1208,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 718256448}
-  - {fileID: 2141171257}
   m_Father: {fileID: 1056026672}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1432,11 +1431,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1813201929}
-  m_RootOrder: 1
+  m_Father: {fileID: 1056026672}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5, y: 185}
-  m_SizeDelta: {x: 770, y: 530}
+  m_AnchoredPosition: {x: 5, y: 9.087006}
+  m_SizeDelta: {x: 130, y: 138.17395}
   m_Pivot: {x: 0.5, y: 0.5}

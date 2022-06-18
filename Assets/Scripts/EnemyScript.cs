@@ -10,18 +10,18 @@ public class EnemyScript : MonoBehaviour, IDamage
     [Header("Enemyを倒した時の獲得ポイント"), SerializeField] public int _getPoint;
     Vector2 _startPosition;
 
-    [Header("攻撃オブジェクト")] public GameObject _attackObject; //++
-    [Header("攻撃発射位置")] public Transform _muzzle; //++
-    Transform _player; //++
+    [Header("攻撃オブジェクト")] public GameObject _attackObject;
+    [Header("攻撃発射位置")] public Transform _muzzle;
+    Transform _player;
 
-    // <summary> Audio設定 </summary>
+    /// <summary> Audio設定 </summary>
 	[Header("AudioSourceをアタッチ"), SerializeField] private AudioSource _audio; //コンポーネント
     [Header("BGMファイルから入れる"), SerializeField] private AudioClip _damageSound; //BGM
 
     void Start()
     {
         _startPosition = this.transform.position; //初期位置を取得
-        _player = GameObject.FindGameObjectWithTag("Player").transform; //++
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
 
         if (_player.transform.position.x - _startPosition.x <= 15 && _player.transform.position.x - _startPosition.x >= -15)
         {

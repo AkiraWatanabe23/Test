@@ -13,9 +13,4 @@ public class DeleteTime : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Destroy(gameObject, _deleteTime); //gameObject(¡‰ñ‚Ìê‡"+10")‚ª_deleteTime•bŒo‰ß‚µ‚½‚çAÁ‚¦‚é
-    }
 }

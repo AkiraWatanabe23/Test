@@ -19,10 +19,4 @@ public class DestroyFire : MonoBehaviour
     {
         Destroy(gameObject, _deleteTime);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

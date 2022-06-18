@@ -19,26 +19,25 @@ public class GameManager : MonoBehaviour
     public Scenemanager sceneManager;
     public bool isGameOver;
     public PlayerController _player;
-    public PlayerHP playerHP;
-    public int _playerHP;
+    public PlayerHP _hp;
     public EnemyScript _boss;
     public int _enemyHP;
 
+    /// <summary> DOFade(SceneManager.Script) が実行されている間にずっと実行されないようにするフラグ </summary>
     bool _result = false;
     bool _rTrigger = true;
 
 
-    // <summary> シーン遷移した後にupdateで遷移の処理をされないようにするためのフラグ </summary>
+    /// <summary> シーン遷移した後にupdateで遷移の処理をされないようにするためのフラグ </summary>
     //[HideInInspector] public bool isLoad;
 
     // Start is called before the first frame update
     void Start()
     {
         _player = GameObject.Find("Player").GetComponent<PlayerController>();
-        playerHP = GameObject.Find("Player").GetComponent<PlayerHP>();
+        _hp = GameObject.Find("Player").GetComponent<PlayerHP>();
         _boss = GameObject.Find("StageBoss").GetComponent<EnemyScript>();
         isGameOver = _player.isGameOver;
-        _playerHP = playerHP._playerHP;
         _enemyHP = _boss._enemyHP;
 
         //スコアの初期化
@@ -62,25 +61,29 @@ public class GameManager : MonoBehaviour
 
         if (_result)
         {
-            if (_playerHP < 20)
+            if (_hp._playerHP < 30)
             {
                 _score *= 2;
                 Debug.Log(_score);
+                Debug.Log(_hp._playerHP);
             }
-            else if (_playerHP < 40)
+            else if (_hp._playerHP < 50)
             {
                 _score = 3;
                 Debug.Log(_score);
+                Debug.Log(_hp._playerHP);
             }
-            else if (_playerHP < 70)
+            else if (_hp._playerHP < 80)
             {
                 _score *= 5;
                 Debug.Log(_score);
+                Debug.Log(_hp._playerHP);
             }
-            else
+            else if (80 <= _hp._playerHP && _hp._playerHP <= 100)
             {
                 _score *= 10;
                 Debug.Log(_score);
+                Debug.Log(_hp._playerHP);
             }
 
             Debug.Log("GameFinish");

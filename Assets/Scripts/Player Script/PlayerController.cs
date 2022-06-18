@@ -12,7 +12,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    //variable for how fast player runs//
+    // variable for how fast player runs //
     private float speed = 5f;
     public bool isAttack; //bool型の既定値 ... false
     public bool isReturn;
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     float groundRadius = 0.2f;
     public LayerMask whatIsGround; //レイヤーマスク
 
-    //variable for how high player jumps//
+    // variable for how high player jumps //
     [SerializeField]
     private float jumpForce = 300f;
 
@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
     /// <summary>Audio設定</summary>
     [Header("AudioSourceをアタッチ"), SerializeField] private AudioSource _audio; //コンポーネント
     [Header("BGMファイルからattackBGMを入れる"), SerializeField] private AudioClip _attackSound; //BGM
-    //[Header("BGMファイルからdamageBGMを入れる"), SerializeField] private AudioClip _damageSound; //BGM
     [Header("BGMファイルからjumpBGMを入れる"), SerializeField] private AudioClip _jumpSound; //BGM
 
 

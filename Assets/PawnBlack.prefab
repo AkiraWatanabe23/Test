@@ -100,7 +100,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05172062, y: 1.334037}
+  m_Offset: {x: 0.064226866, y: 1.334037}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.44899458, y: 0.015631935}
@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3645573, y: 2.754987}
+  m_Size: {x: 1.5396457, y: 2.754987}
   m_EdgeRadius: 0
 --- !u!114 &2810260338559189527
 MonoBehaviour:
@@ -131,7 +131,6 @@ MonoBehaviour:
   _attackObject: {fileID: 8370357138427538743, guid: bc5b9ca85c2060849b099663ea4237bf,
     type: 3}
   _muzzle: {fileID: 2038965500102335167, guid: 4cad7f1572ba58a428a6131753a85dd9, type: 3}
-  _playerTransform: {fileID: 0}
   _audio: {fileID: 0}
   _damageSound: {fileID: 8300000, guid: 99fbaa192fead784fb0f3a55790d0c67, type: 3}
 --- !u!114 &1220783891
@@ -146,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a2dc4fce497494fb6e1e4942e76a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interval: 2
+  _interval: 1.5
   _createObject: {fileID: 8370357138427538743, guid: bc5b9ca85c2060849b099663ea4237bf,
     type: 3}
   _rightWidth: 5

@@ -17,14 +17,13 @@ public class TimeCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         countdown = Mathf.Clamp(countdown, 0, countdown);
         //時間をカウントダウンする
         countdown -= Time.deltaTime;
 
         //時間を表示する
         timeText.text = countdown.ToString("F0");
-        //timeText.text = $"{countdown:F0}"; 書き方2
+        //timeText.text = $"{countdown:F0}"; 書き方 その2
 
         //countdownが0以下になったとき
         if (countdown <= 0)

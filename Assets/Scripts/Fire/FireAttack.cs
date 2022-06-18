@@ -24,9 +24,9 @@ public class FireAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((transform.position.x - _playerPos.position.x) > 0f)//¶‚Ìê‡
+        if((transform.position.x - _playerPos.position.x) > 0f) //¶‚Ìê‡
         {
-            if (_lifeTime > _interval)
+            if(_lifeTime > _interval)
             {
                 Instantiate(_createObject, _muzzlePos.position, Quaternion.identity);
                 _lifeTime = 0f;
@@ -34,7 +34,7 @@ public class FireAttack : MonoBehaviour
         }
         else//‰E‚Ìê‡
         {
-            if (_lifeTime > _interval)
+            if(_lifeTime > _interval)
             {
                 Instantiate(_createObject, new Vector3(_muzzlePos.position.x + _rightWidth, _muzzlePos.position.y, 0f), Quaternion.identity);
                 _lifeTime = 0f;

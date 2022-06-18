@@ -25,7 +25,7 @@ public class ResultSceneManager : MonoBehaviour
         _score = GameManager._score;
 
         DOTween.To(() => _minScore, (n) => _minScore = n, /*値の更新*/
-                         _score, /*最終的な値*/ 3.0f /*アニメーション時間*/ )
+                         _score, /*最終的な値*/ 4.0f /*アニメーション時間*/ )
                          .OnUpdate(() => _scoreText.text = _minScore.ToString("D4"));
         //表示する桁数をstring型で指定 ... ("D〇")で〇桁表示
         //1行にすると↓のようになる

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -104,5 +103,31 @@ public class GameManager : MonoBehaviour
                 _result = false;
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            //Unityエディター上で終了する処理(ビルド時はコメントアウトするべき処理)
+            UnityEditor.EditorApplication.isPlaying = false;
+            //ビルド後で実行中の終了処理
+            Application.Quit();
+        }
+
+        //Main()
+        //{
+
+        //1:ゲーム起動時の処理。Unityが勝手にやってくれる
+
+        //2:ゲーム中の処理。UnityEditor.EditorApplication.isPlayingがtrueの間実行される
+        if (UnityEditor.EditorApplication.isPlaying)
+        {
+
+        }
+        //3:終了時の処理。UnityEditor.EditorApplication.isPlayingがfalseになったタイミングで実行される
+        else
+        {
+            
+        }
+
+        //}
     }
 }

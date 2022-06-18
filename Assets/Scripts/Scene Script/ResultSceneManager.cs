@@ -16,7 +16,6 @@ public class ResultSceneManager : MonoBehaviour
     private void Awake()
     {
         _score = GameManager._score;
-        _resultText = GameObject.Find("HyoukaText");
     }
 
     // Start is called before the first frame update
@@ -32,17 +31,18 @@ public class ResultSceneManager : MonoBehaviour
         // DOTween.To(() => _minScore,(n) => _minScore = n,_score,3.0f).OnUpdate(() => _scoreText.text = _minScore.ToString("D6"));
         //不等号の部分は、「ラムダ式」てのを使ってるらしい... まだ使わないけど、要勉強
 
+        _resultText = GameObject.Find("HyoukaText");
         Text resultText = _resultText.GetComponent<Text>();
 
         if (_score == 0)
         {
             resultText.text = "Let's try again!";
         }
-        else if (_score < 1000)
+        else if (_score <= 1000)
         {
             resultText.text = "Good!";
         }
-        else if (_score < 2000)
+        else if (_score <= 2000)
         {
             resultText.text = "Great!!";
         }

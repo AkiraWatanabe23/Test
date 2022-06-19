@@ -620,7 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a2dc4fce497494fb6e1e4942e76a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interval: 1.7
+  _interval: 1.5
   _createObject: {fileID: 8370357138427538743, guid: bc5b9ca85c2060849b099663ea4237bf,
     type: 3}
   _rightWidth: 5
@@ -3111,7 +3111,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1220783891, guid: 520950feacf495e4687552f76ffa57c7, type: 3}
       propertyPath: _interval
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 460197099713801953, guid: 520950feacf495e4687552f76ffa57c7,
         type: 3}
@@ -3812,7 +3812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a2dc4fce497494fb6e1e4942e76a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interval: 1
+  _interval: 0.8
   _createObject: {fileID: 8370357138427538743, guid: bc5b9ca85c2060849b099663ea4237bf,
     type: 3}
   _rightWidth: 5

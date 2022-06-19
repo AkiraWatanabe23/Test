@@ -42,13 +42,17 @@ public class ResultSceneManager : MonoBehaviour
         {
             resultText.text = "Good!";
         }
-        else if (_score <= 2000)
+        else if (_score <= 1500)
         {
             resultText.text = "Great!!";
         }
-        else
+        else if (_score <= 2000)
         {
             resultText.text = "Excellent!!";
+        }
+        else
+        {
+            resultText.text = "Congratulations!!";
         }
     }
 }

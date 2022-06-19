@@ -12,12 +12,15 @@ public class Scenemanager : MonoBehaviour
 
     public void StartFadeOut(string scene) //フェードアウト関数
     {
-        _fadeImage.gameObject.SetActive(true);
-        //徐々に暗くする→Sceneを遷移する
+        _fadeImage.gameObject.SetActive(true); //徐々に暗くする→Sceneを遷移する
+
         this._fadeImage.DOFade(duration: 1f /*実行後のアルファ値*/, endValue: 1f /*実行時間*/)
             .OnComplete(() => SceneManager.LoadScene(scene /*移行するシーン名(string型)*/));
+
+        // "duration:","endValue:" をコメントアウトしても実行はできる ... 何故？
         // OnComplete() ... これより上に書かれている DOTween の処理が終了したら実行される
         //ImageのColorは透明に設定
+
         GameManager._score = 0; //TitleSceneに戻った時にScoreをリセットする
         Debug.Log("Score Reset");
     }
@@ -25,6 +28,7 @@ public class Scenemanager : MonoBehaviour
     {
         //徐々に明るくする→フェードに使っていたパネルを非表示にする
         this._fadeImage.DOFade(endValue: 0f, duration: 1f).OnComplete(() => _fadeImage.gameObject.SetActive(false));
+        //フェードアウト関数と "duration:","endValue:" が逆 ... 何故？
         //ImageのColorは真っ黒に設定
     }
 

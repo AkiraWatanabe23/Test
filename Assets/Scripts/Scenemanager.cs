@@ -14,7 +14,9 @@ public class Scenemanager : MonoBehaviour
     {
         _fadeImage.gameObject.SetActive(true);
         //徐々に暗くする→Sceneを遷移する
-        this._fadeImage.DOFade(duration: 1f, endValue: 1f).OnComplete(() => SceneManager.LoadScene(scene));
+        this._fadeImage.DOFade(duration: 1f /*実行後のアルファ値*/, endValue: 1f /*実行時間*/)
+            .OnComplete(() => SceneManager.LoadScene(scene /*移行するシーン名(string型)*/));
+        // OnComplete() ... これより上に書かれている DOTween の処理が終了したら実行される
         //ImageのColorは透明に設定
         GameManager._score = 0; //TitleSceneに戻った時にScoreをリセットする
         Debug.Log("Score Reset");
@@ -45,6 +47,13 @@ public class Scenemanager : MonoBehaviour
 
     public void Exit()
     {
-        Application.Quit();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //UnityEditor 上で終了する処理(ビルド時はコメントアウトするべき処理)
+            //UnityEditor.EditorApplication.isPlaying = false;
+
+            //ビルド後で実行中の終了処理
+            Application.Quit();
+        }
     }
 }

@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public EnemyScript _boss;
     public int _enemyHP;
 
-    /// <summary> DOFade(SceneManager.Script) が実行されている間にずっと実行されないようにするフラグ </summary>
+    /// <summary> DOFade(SceneManager.Script) が実行されている間にずっと実行されないように(1回だけ実行されるように)するフラグ </summary>
     bool _result = false;
     bool _rTrigger = true;
 
@@ -60,7 +60,13 @@ public class GameManager : MonoBehaviour
 
         if (_result)
         {
-            if (_hp._playerHP < 30)
+            if(_hp._playerHP <= 0)
+            {
+                _score *= 1;
+                Debug.Log(_score);
+                Debug.Log(_hp._playerHP);
+            }
+            else if (_hp._playerHP < 30)
             {
                 _score *= 2;
                 Debug.Log(_score);
@@ -68,7 +74,7 @@ public class GameManager : MonoBehaviour
             }
             else if (_hp._playerHP < 50)
             {
-                _score = 3;
+                _score *= 3;
                 Debug.Log(_score);
                 Debug.Log(_hp._playerHP);
             }
@@ -102,14 +108,6 @@ public class GameManager : MonoBehaviour
             {
                 _result = false;
             }
-        }
-
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            //Unityエディター上で終了する処理(ビルド時はコメントアウトするべき処理)
-            //UnityEditor.EditorApplication.isPlaying = false;
-            //ビルド後で実行中の終了処理
-            Application.Quit();
         }
     }
 }

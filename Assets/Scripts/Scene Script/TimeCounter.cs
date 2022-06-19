@@ -25,7 +25,6 @@ public class TimeCounter : MonoBehaviour
         timeText.text = countdown.ToString("F0");
         //timeText.text = $"{countdown:F0}"; ‘‚«•û ‚»‚Ì2
 
-        //countdown‚ª0ˆÈ‰º‚É‚È‚Á‚½‚Æ‚«
         if (countdown <= 0)
         {
             _toResult.gameObject.SetActive(true);

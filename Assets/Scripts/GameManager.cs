@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public PlayerHP _hp;
     public EnemyScript _boss;
     public int _enemyHP;
+    //public GameObject _timeUp;
 
     /// <summary> DOFade(SceneManager.Script) が実行されている間にずっと実行されないように(1回だけ実行されるように)するフラグ </summary>
     bool _result = false;
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
         _boss = GameObject.Find("StageBoss").GetComponent<EnemyScript>();
         isGameOver = _player.isGameOver;
         _enemyHP = _boss._enemyHP;
+        //_timeUp = GameObject.Find("Timer");
 
         //スコアの初期化
         _countdown = _totalTime;
@@ -97,7 +99,7 @@ public class GameManager : MonoBehaviour
             //isLoad = true;
         }
 
-        if (isGameOver || _enemyHP <= 0)
+        if (isGameOver || _enemyHP <= 0 /* || _timeUp.GetComponent<TimeCounter>()._movestop == true */ )
         {
             if (_rTrigger)
             {

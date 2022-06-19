@@ -31,7 +31,7 @@ public class EnemyScript : MonoBehaviour, IDamage
         }
     }
 
-    private void Update()
+    void Update()
     {
         if (_enemyHP <= 0)
         {

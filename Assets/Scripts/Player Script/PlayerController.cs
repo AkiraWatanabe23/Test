@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("Ground", grounded);
 
         //移動処理
-        if (_isMove) //_isMoveがfalseの時、移動処理が実行される
+        if (_isMove) //_isMoveがtrueの時、移動処理が実行される
         {
             float horizontal = Input.GetAxis("Horizontal");
             //horizontalはplayerの向きをあらわす( < 0は右向き、 > 0は左向き)

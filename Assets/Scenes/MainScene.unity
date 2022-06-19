@@ -683,6 +683,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &226931787 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8789572443624524352, guid: 7fd83d08bbae3b7428643a0fece866dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 553620094}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f3dbf11e9ca364299bca4061c30048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &255299147
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +822,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -480, y: -200}
+  m_AnchoredPosition: {x: -400, y: -200}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &285128504
@@ -4148,7 +4160,7 @@ MonoBehaviour:
   sceneManager: {fileID: 5018522024266586255}
   isGameOver: 0
   _player: {fileID: 553620095}
-  _hp: {fileID: 0}
+  _hp: {fileID: 226931787}
   _boss: {fileID: 1258478061}
   _enemyHP: 0
 --- !u!4 &1404413183
@@ -5024,7 +5036,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 250
+  m_Text: 
 --- !u!222 &1779412810
 CanvasRenderer:
   m_ObjectHideFlags: 0

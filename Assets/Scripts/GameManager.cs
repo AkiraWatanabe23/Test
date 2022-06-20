@@ -83,13 +83,13 @@ public class GameManager : MonoBehaviour
                 Debug.Log(_score);
                 Debug.Log(_hp._playerHP);
             }
-            else if (_hp._playerHP < 80)
+            else if (_hp._playerHP < 90)
             {
                 _score *= 5;
                 Debug.Log(_score);
                 Debug.Log(_hp._playerHP);
             }
-            else if (80 <= _hp._playerHP)
+            else if (90 <= _hp._playerHP)
             {
                 _score *= 10;
                 Debug.Log(_score);

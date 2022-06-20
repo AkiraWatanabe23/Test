@@ -60,14 +60,17 @@ public class GameManager : MonoBehaviour
         isGameOver = _player.isGameOver;
         _enemyHP = _boss._enemyHP; // Boss の HP を監視
 
+        //リザルトへ移行
         if (_result)
         {
-            if(_hp._playerHP <= 0)
+            //プレイヤーの体力が0以下になった場合の処理
+            if (_hp._playerHP <= 0)
             {
                 _score *= 1;
                 Debug.Log(_score);
                 Debug.Log(_hp._playerHP);
             }
+            //プレイヤーの体力が30未満の処理
             else if (_hp._playerHP < 30)
             {
                 _score *= 2;
@@ -86,7 +89,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log(_score);
                 Debug.Log(_hp._playerHP);
             }
-            else if (80 <= _hp._playerHP && _hp._playerHP <= 100)
+            else if (80 <= _hp._playerHP)
             {
                 _score *= 10;
                 Debug.Log(_score);
@@ -99,7 +102,7 @@ public class GameManager : MonoBehaviour
             //isLoad = true;
         }
 
-        if (isGameOver || _enemyHP <= 0 /* || _timeUp.GetComponent<TimeCounter>()._movestop == true */ )
+        if (isGameOver || _enemyHP <= 0)
         {
             if (_rTrigger)
             {

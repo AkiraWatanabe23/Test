@@ -34,7 +34,7 @@ public class ResultSceneManager : MonoBehaviour
         _resultText = GameObject.Find("HyoukaText");
         Text resultText = _resultText.GetComponent<Text>();
 
-        if (_score == 0)
+        if (_score <= 300)
         {
             resultText.text = "Let's try again!";
         }

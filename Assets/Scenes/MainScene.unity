@@ -1793,7 +1793,7 @@ PrefabInstance:
     - target: {fileID: 8789572443624524352, guid: 7fd83d08bbae3b7428643a0fece866dd,
         type: 3}
       propertyPath: _playerHP
-      value: 5
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 8789572443624524352, guid: 7fd83d08bbae3b7428643a0fece866dd,
         type: 3}
@@ -2276,8 +2276,8 @@ Transform:
   - {fileID: 994881358}
   - {fileID: 900680189}
   - {fileID: 753833123}
-  - {fileID: 1258478060}
   - {fileID: 1286178252}
+  - {fileID: 1258478060}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3605,7 +3605,7 @@ Transform:
   - {fileID: 322005794}
   - {fileID: 168322887}
   m_Father: {fileID: 705068550}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1258478061
 MonoBehaviour:
@@ -3818,7 +3818,7 @@ Transform:
   - {fileID: 642023730}
   - {fileID: 373539188}
   m_Father: {fileID: 705068550}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1321653742
 GameObject:

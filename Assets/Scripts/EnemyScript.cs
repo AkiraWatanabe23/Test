@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour, IDamage
+public abstract class EnemyScript : MonoBehaviour, IDamage
 {
 
     [Header("Enemy‚ÌHP"), SerializeField] public int _enemyHP; //int‚ÌŠù’è’l‚Í0
@@ -31,14 +31,7 @@ public class EnemyScript : MonoBehaviour, IDamage
         }
     }
 
-    void Update()
-    {
-        if (_enemyHP <= 0)
-        {
-            GameManager._score += _getPoint; //enemy ‚ð“|‚µ‚½‚çƒXƒRƒA‰ÁŽZ
-            Destroy(this.gameObject); //Destroy ‚Ìˆ—‚ÍÅŒã‚É‘‚­
-        }
-    }
+    public abstract void WhenDestroy();
 
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -46,6 +39,11 @@ public class EnemyScript : MonoBehaviour, IDamage
         {
             damage.ReceiveDamage(_damageValue);
             Debug.Log("damage");
+        }
+
+        if (_enemyHP <= 0)
+        {
+            WhenDestroy();
         }
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPlus : EnemyScript //EnemyScript ‚ğŒp³
+public class EnemyBoss : EnemyScript //EnemyScript ‚ğŒp³
 {
     public override void WhenDestroy()
     {

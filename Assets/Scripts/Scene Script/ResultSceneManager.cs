@@ -9,7 +9,7 @@ public class ResultSceneManager : MonoBehaviour
     [SerializeField] Text _scoreText;
     GameObject _resultText;
 
-    //このスクリプト内のみで使う
+    //このスクリプト内のみで使う変数
     int _score;
     int _minScore;
 
@@ -23,13 +23,12 @@ public class ResultSceneManager : MonoBehaviour
     {
         _score = GameManager._score;
 
-        DOTween.To(() => _minScore, (n) => _minScore = n, /*値の更新*/
-                         _score, /*最終的な値*/ 4.5f /*アニメーション時間*/ )
+        DOTween.To(() => _minScore, n => _minScore = n,
+                         _score, 4.5f)
                          .OnUpdate(() => _scoreText.text = _minScore.ToString("D4"));
         //表示する桁数をstring型で指定 ... ("D〇")で〇桁表示
         //1行にすると↓のようになる
         // DOTween.To(() => _minScore,(n) => _minScore = n,_score,4.5f).OnUpdate(() => _scoreText.text = _minScore.ToString("D4"));
-        //不等号の部分は、「ラムダ式」てのを使ってるらしい... まだ使わないけど、要勉強
 
         _resultText = GameObject.Find("HyoukaText");
         Text resultText = _resultText.GetComponent<Text>();

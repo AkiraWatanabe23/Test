@@ -23,9 +23,10 @@ public class ResultSceneManager : MonoBehaviour
     {
         _score = GameManager._score;
 
-        DOTween.To(() => _minScore, n => _minScore = n,
-                         _score, 4.5f)
-                         .OnUpdate(() => _scoreText.text = _minScore.ToString("D4"));
+        DOTween.To(() => _minScore,
+            n => _minScore = n,
+            _score, 4.5f)
+            .OnUpdate(() => _scoreText.text = _minScore.ToString("D4"));
         //•\Ž¦‚·‚éŒ…”‚ðstringŒ^‚ÅŽw’è ... ("DZ")‚ÅZŒ…•\Ž¦
         //1s‚É‚·‚é‚Æ«‚Ì‚æ‚¤‚É‚È‚é
         // DOTween.To(() => _minScore,(n) => _minScore = n,_score,4.5f).OnUpdate(() => _scoreText.text = _minScore.ToString("D4"));
